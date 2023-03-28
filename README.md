@@ -95,9 +95,9 @@ function uuid() {
 
 ### Referências
 
-[W3c](https://www.w3schools.com/)
-[Stackoverflow](https://stackoverflow.com/)
-[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [W3c](https://www.w3schools.com/)
+- [Stackoverflow](https://stackoverflow.com/)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
 ## Autor
 [Edilane Silva](https://www.linkedin.com/in/edilane-silva/)
