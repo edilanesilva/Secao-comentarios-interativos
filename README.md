@@ -33,7 +33,7 @@ Os usuários devem ser capazes de:
 
 ### Links
 
-- Deploy :
+- [Deploy](https://edilanesilva.github.io/Secao-comentarios-interativos/)
 
 ## Meu processo
 
