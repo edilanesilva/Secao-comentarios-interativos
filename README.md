@@ -21,6 +21,7 @@
 Os usuários devem ser capazes de:
 
 - [x] Veja o layout ideal para o aplicativo, dependendo do tamanho da tela do dispositivo
+- [x] Veja os estados de foco para todos os elementos interativos na página
 - [x] LocalStorage para salvar o estado atual no navegador que persiste quando o navegador é atualizado.
 - [x] Criar, ler, atualizar e excluir comentários 
 
