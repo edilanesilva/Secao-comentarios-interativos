@@ -1,0 +1,40 @@
+@media screen and (max-width:640px) {
+    .container{
+        padding: .75rem;
+    }
+    .replies{
+        padding-left: 1rem;
+        margin-left: .5rem;
+    }
+    .comment{
+        grid-template-areas: 
+            "user user user"
+            "comment comment comment"
+            "score ... controls"
+        ;
+
+        gap: .5rem;
+    }
+    .c-score{
+        flex-direction: row;
+        width: auto;
+    }
+    .reply-input{
+        grid-template-areas: 
+            "input input input"
+            "avatar ... button"
+        ;
+        grid-template-rows: auto min-content;
+        align-items: center;
+        gap: .5rem;
+    }
+    .reply-input img{
+        height: 2rem;
+        width: 2rem;
+    }
+    .reply-input textarea{
+        height: 6rem;
+        padding: .5rem;
+        align-self: stretch;
+    }
+}

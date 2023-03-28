@@ -32,7 +32,7 @@ Os usuários devem ser capazes de:
 
 ### Links
 
-- URL do site ao vivo:
+- Deploy :
 
 ## Meu processo
 
@@ -57,6 +57,12 @@ Os usuários devem ser capazes de:
 	if (!localStorage.getItem("dados")) {
 		localStorage.setItem("dados", JSON.stringify(data));
 	}})
+```
+>> Metodo cloneNode -> clona toda a subarvore, incluindo nós filhos.
+```js
+	var commentNode = template.content.cloneNode(true);
+	commentNode.querySelector(".usr-name").textContent = element.user.username;
+
 ```
 >> Gera um id dinâmico
 ```js
@@ -88,7 +94,9 @@ function uuid() {
 
 ### Referências
 
-[w3c](https://www.w3schools.com/)
+[W3c](https://www.w3schools.com/)
+[Stackoverflow](https://stackoverflow.com/)
+[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
 ## Autor
 [Edilane Silva](https://www.linkedin.com/in/edilane-silva/)

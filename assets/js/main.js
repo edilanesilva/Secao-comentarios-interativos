@@ -79,13 +79,14 @@ const data = {
 /* Envia template comentarios para armazenamento navegador*/
 document.addEventListener("DOMContentLoaded", function () {
 	if (!localStorage.getItem("dados")) {
-		localStorage.setItem("dados", JSON.stringify(data));
-	}
+	localStorage.setItem("dados", JSON.stringify(data));
+		}
 
 	/* comentarios iniciais */
 	const initComments = () => {
 		const commentsWrapper = document.querySelector(".comments-wrp");
 		commentsWrapper.textContent = "";
+		console.log(commentsWrapper);
 		const dados = JSON.parse(localStorage.getItem("dados"));
 
 		/* acessa cada elemento do objeto data */
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			//clona template
 			const template = document.querySelector(".comment-template");
 			var commentNode = template.content.cloneNode(true);
+			
 			commentNode.querySelector(".usr-name").textContent =
 				element.user.username;
 			commentNode.querySelector(".usr-img").src = element.user.image.png;
@@ -113,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			commentNode
 				.querySelector(".edit")
-				.addEventListener("click", () =>  editarComment(element));
+				.addEventListener("click", () => editarComment(element));
 			commentsWrapper.append(commentNode);
 		});
 	};
@@ -131,12 +133,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		initComments();
 	};
 
-    /* Editar comentario */
-    const editarComment = (comment) => {
-        const sendBtn = document.querySelector(".bu-primary");
-        document.querySelector('.cmnt-input').value = comment.content;
-        sendBtn.setAttribute('data-comment', JSON.stringify(comment))
-		
+	/* Editar comentarios */
+	const editarComment = (comment) => {
+		const sendBtn = document.querySelector(".bu-primary");
+		document.querySelector(".cmnt-input").value = comment.content;
+		sendBtn.setAttribute("data-comment", JSON.stringify(comment));
 	};
 
 	const modal = (comment = false) => {
@@ -153,31 +154,26 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 			modal.classList.toggle("invisible");
 		}
-    };
-    
+	};
+
 	/*  Adicionar comentários */
 	const addComment = (e) => {
 		const element = e.target.previousElementSibling;
-        console.log(element.value);
-        const sendBtn = document.querySelector(".bu-primary");
-        let comment = sendBtn.getAttribute('data-comment')
-        const dados = JSON.parse(localStorage.getItem("dados"));
-        if (comment) {
-           
-            comment = JSON.parse(comment)
-            dados.comments = dados.comments.map(commentData => {
-                
-                if (commentData.id == comment.id) {
-                    console.log()
-                //desconstruindo o objeto e inserindo o valor digitado no content
-                    return { ...commentData, "content" : element.value }
-                }
-                    return commentData
-            })
-            
-            sendBtn.setAttribute('data-comment', "")
-                    
-            
+		console.log(element.value);
+		const sendBtn = document.querySelector(".bu-primary");
+		let comment = sendBtn.getAttribute("data-comment");
+		const dados = JSON.parse(localStorage.getItem("dados"));
+		if (comment) {
+			comment = JSON.parse(comment);
+			dados.comments = dados.comments.map((commentData) => {
+				if (commentData.id == comment.id) {
+					//desconstruindo o objeto e inserindo o valor digitado no content
+					return { ...commentData, content: element.value };
+				}
+				return commentData;
+			});
+
+			sendBtn.setAttribute("data-comment", "");
 		} else {
 			const initialData = {
 				parent: 0,
@@ -193,19 +189,18 @@ document.addEventListener("DOMContentLoaded", function () {
 					},
 					username: "juliusomo",
 				},
-            };
-            
+			};
+
 			if (element.value) {
 				initialData.content = element.value;
 				initialData.id = uuid();
 				dados.comments.push(initialData);
-				
-            }
-        }
+			}
+		}
 
-        localStorage.setItem("dados", JSON.stringify(dados));
-        element.value = "";
-        initComments();
+		localStorage.setItem("dados", JSON.stringify(dados));
+		element.value = "";
+		initComments();
 	};
 
 	const sendBtn = document.querySelector(".bu-primary");
@@ -213,8 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	sendBtn.addEventListener("click", (e) => addComment(e));
 	initComments();
 
-	
-    /* gera um id dinamico */
+	/* gera um id dinamico */
 	function uuid() {
 		// Retorna um número randômico entre 0 e 15.
 		function randomDigit() {
