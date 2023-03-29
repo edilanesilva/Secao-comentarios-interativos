@@ -11,7 +11,7 @@ const data = {
 			parent: 0,
 			id: 1,
 			content:
-				"Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
+				"Impressive! Though it seems the drag feature could be improved. But overall it looks incredible.You've nailed the design and the responsiveness at various breakpoints works really well.",
 			createdAt: "1 month ago",
 			score: 12,
 			user: {
@@ -49,8 +49,7 @@ const data = {
 					user: {
 						image: {
 							png: "assets/images/avatars/image-ramsesmiron.png",
-							webp:
-								"assets/images/avatars/image-ramsesmiron.webp",
+							webp: "assets/images/avatars/image-ramsesmiron.webp",
 						},
 						username: "ramsesmiron",
 					},
@@ -79,8 +78,8 @@ const data = {
 /* Envia template comentarios para armazenamento navegador*/
 document.addEventListener("DOMContentLoaded", function () {
 	if (!localStorage.getItem("dados")) {
-	localStorage.setItem("dados", JSON.stringify(data));
-		}
+		localStorage.setItem("dados", JSON.stringify(data));
+	}
 
 	/* comentarios iniciais */
 	const initComments = () => {
@@ -94,28 +93,19 @@ document.addEventListener("DOMContentLoaded", function () {
 			//clona template
 			const template = document.querySelector(".comment-template");
 			var commentNode = template.content.cloneNode(true);
-			
-			commentNode.querySelector(".usr-name").textContent =
-				element.user.username;
+
+			commentNode.querySelector(".usr-name").textContent = element.user.username;
 			commentNode.querySelector(".usr-img").src = element.user.image.png;
-			commentNode.querySelector(".score-number").textContent =
-				element.score;
-			commentNode.querySelector(".cmnt-at").textContent =
-				element.createdAt;
+			commentNode.querySelector(".score-number").textContent = element.score;
+			commentNode.querySelector(".cmnt-at").textContent = element.createdAt;
 			commentNode.querySelector(".c-body").textContent = element.content;
-			commentNode
-				.querySelector(".delete")
-				.addEventListener("click", () => modal(element));
+			commentNode.querySelector(".delete").addEventListener("click", () => modal(element));
 
 			if (element.user.username == dados.currentUser.username) {
-				commentNode
-					.querySelector(".comment")
-					.classList.add("this-user");
+				commentNode.querySelector(".comment").classList.add("this-user");
 			}
 
-			commentNode
-				.querySelector(".edit")
-				.addEventListener("click", () => editarComment(element));
+			commentNode.querySelector(".edit").addEventListener("click", () => editarComment(element));
 			commentsWrapper.append(commentNode);
 		});
 	};
@@ -127,9 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		dados.comments = dados.comments.filter(
 			(commentData) => commentData.id != comment.id
 		);
-
 		localStorage.setItem("dados", JSON.stringify(dados));
-
 		initComments();
 	};
 
@@ -204,7 +192,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 
 	const sendBtn = document.querySelector(".bu-primary");
-
 	sendBtn.addEventListener("click", (e) => addComment(e));
 	initComments();
 
