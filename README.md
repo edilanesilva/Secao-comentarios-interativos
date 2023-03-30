@@ -59,7 +59,7 @@ Os usuários devem ser capazes de:
 		localStorage.setItem("dados", JSON.stringify(data));
 	}})
 ```
->> Metodo cloneNode -> clona toda a subarvore, incluindo nós filhos.
+>> Metodo cloneNode -> clona toda a subarvore, incluindo nós filhos e assim adicionar o conteudo do objeto
 ```js
 	var commentNode = template.content.cloneNode(true);
 	commentNode.querySelector(".usr-name").textContent = element.user.username;
