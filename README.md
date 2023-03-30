@@ -65,7 +65,7 @@ Os usuários devem ser capazes de:
 	commentNode.querySelector(".usr-name").textContent = element.user.username;
 
 ```
->> desconstruindo o objeto e inserindo o valor digitado no content
+>> Desconstruindo o objeto e inserindo o valor digitado no content
 ```js
 return { ...commentData, content: element.value };
 ```
