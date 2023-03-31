@@ -94,7 +94,7 @@ function uuid() {
 
 ### Desenvolvimento contínuo
 
- <p>Consumo de api -> HTTP: GET, POST, PUT, PATCH, DELETE.</p>
+ <p>Explorar o JSON</p>
 
 
 ### Referências
